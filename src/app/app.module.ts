@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonListagemComponent } from './pokemon-listagem/pokemon-listagem.component';
 import { PokemonService } from './pokemon.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PokemonService } from './pokemon.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]
