@@ -1,1 +1,6 @@
-<p>pokemon-listagem works!</p>
+<h2>Listagem</h2>
+<ul>
+    <li *ngFor="let p of listaPokemon.results">
+        {{p['name']}} - {{p['url']}}
+    </li>
+</ul>
