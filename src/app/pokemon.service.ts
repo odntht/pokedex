@@ -7,12 +7,22 @@ import { HttpClient } from '@angular/common/http';
 export class PokemonService {
 
   URL_BASE = 'https://pokeapi.co/api/v2/';
-  pokemonsUrl = this.URL_BASE + 'pokemon';
+  pokemonsUrl = this.URL_BASE + 'pokemon?limit=1118';
+  geracoesUrl = this.URL_BASE + 'generation/';
+  versoesJogosUrl = this.URL_BASE + 'version-group/';
 
   constructor(private http: HttpClient) { }
 
-  listar() {
+  listarPokemons() {
     return this.http.get<any[]>(`${this.pokemonsUrl}`);
+  };
+
+  listarGeracoes(){
+    return this.http.get<any[]>(`${this.geracoesUrl}`);
+  }
+
+  listarVersoesJogos(){
+    return this.http.get<any[]>(`${this.versoesJogosUrl}`);
   }
 
 }
