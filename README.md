@@ -22,4 +22,8 @@ O próprio AngularCLI ficará a cargo de executar a aplicação, no fim ele apar
 
 Basta acessar esse endereço para visualizar a aplicação.
 
+Ou se preferir, basta acessar
+
+https://stackblitz.com/github/odntht/pokedex-DM
+
 Enjoy it!
