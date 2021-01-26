@@ -1,10 +1,12 @@
 <div *ngIf="!!listaPokemons">
     <p>Atualmente há {{listaGeracoes.count}} gerações de Pokemóns!</p>
-    <ul *ngFor="let item of listaGeracoes.results; let i = index" >
-        <li>{{item.nome}}</li>
-        <ul *ngFor="let item of this.listaVersoes[i]">
-            <li>{{item.name}}</li>
+    <div class="container">
+        <ul class="borda m-1p p-2p" *ngFor="let item of listaGeracoes.results; let i = index" (click)="onSelect(i+1)">
+            <li>{{item.nome | titlecase}}</li>
+            <ul *ngFor="let item of this.listaVersoes[i]">
+                <li>{{item.name | titlecase}}</li>
+            </ul>
+            <p>Contendo {{listaPokemons[i].length}} pokémons novos</p>
         </ul>
-        <p>Contendo {{listaPokemons[i].length}} pokémons novos</p>
-    </ul>
+    </div>
 </div>

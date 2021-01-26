@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PokemonService } from '../pokemon.service';
 
 @Component({
@@ -10,13 +11,39 @@ import { PokemonService } from '../pokemon.service';
 export class GeracaoDetalhesComponent implements OnInit {
   @Input() public parentData;
   listaVersoes = [];
-  constructor(private pokemonService: PokemonService) { }
+  listaGeral = [];
+  constructor(
+    private pokemonService: PokemonService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.listarGeracoes(this.parentData);
+    let id = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.listarPokemons(id)
+
   }
 
-  
+  listarPokemons(id) {
+    this.pokemonService.listarPokemons(id)
+      .subscribe(dados => (
+        this.listaGeral = dados,
+        this.obterImagem(this.listaGeral.results)
+      )
+      )
+  }
+
+  obterImagem(listaGeral) {
+    listaGeral.forEach(element => {
+      element.id = element.url.replace('https://pokeapi.co/api/v2/pokemon/', '');
+      element.id = element.id.replace('/', '')
+    });
+  }
+
+  onSelect(item) {
+    this.router.navigate(['/pokemon', item])
+  }
+
+
 
 }
 

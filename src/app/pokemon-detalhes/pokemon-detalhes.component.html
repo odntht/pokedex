@@ -1,1 +1,10 @@
-<p>pokemon-detalhes works!</p>
+<div *ngIf="!!detalhesPokemon">
+    <p>{{detalhesPokemon.name | titlecase }}</p>
+    <img [src]="detalhesPokemon.sprites.front_default" alt="">
+    <p>Lista de Ataques</p>
+    <div class="container" >
+        <div class="m-5px" *ngFor="let item of detalhesPokemon.moves">
+            {{item.move.name | titlecase}}
+        </div>
+    </div>
+</div>

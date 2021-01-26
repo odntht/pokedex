@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PokemonService } from '../pokemon.service';
 
 @Component({
@@ -12,7 +13,10 @@ export class ListaGeracoesComponent implements OnInit {
   listaPokemons = []
 
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(
+    private pokemonService: PokemonService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.listarGeracoes();
@@ -45,5 +49,9 @@ export class ListaGeracoesComponent implements OnInit {
           )
         );
     });
+  }
+
+  onSelect(item){
+    this.router.navigate(['/geracao', item])
   }
 }
