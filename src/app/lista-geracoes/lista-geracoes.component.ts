@@ -9,7 +9,8 @@ import { PokemonService } from '../pokemon.service';
 export class ListaGeracoesComponent implements OnInit {
   listaGeracoes: any[] = [];
   listaVersoes = [];
-  
+  listaPokemons = []
+
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -23,9 +24,9 @@ export class ListaGeracoesComponent implements OnInit {
         this.listaGeracoes = dados,
         this.formataNomesGeracoes(this.listaGeracoes.results),
         this.listarVersoes()
-        )
       )
-    }
+      )
+  }
 
   formataNomesGeracoes(listaGeracoes: any[]) {
     listaGeracoes.forEach(function (item, index) {
@@ -34,16 +35,15 @@ export class ListaGeracoesComponent implements OnInit {
   }
 
   listarVersoes() {
-    this.listaGeracoes.results.forEach((element,index) => {
-      this.pokemonService.listarGeracoes(index+1)
-      .subscribe(
-        dados => this.listaVersoes.push(dados.version_groups)
-      );
-      
+    this.listaGeracoes.results.forEach((element, index) => {
+      this.pokemonService.listarGeracoes(index + 1)
+        .subscribe(
+          (dados => (
+            this.listaVersoes.push(dados.version_groups),
+            this.listaPokemons.push(dados.pokemon_species)
+            )
+          )
+        );
     });
-    
-
   }
-
-
 }
