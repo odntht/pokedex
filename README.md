@@ -16,7 +16,7 @@ Após terminado o download, acesse a pasta 'pokedex' do projeto e execute no ter
 'npm install'
 
 Após a conclusão, basta executar o comando 
-'ng serve'
+'ng serve -o'
 O próprio AngularCLI ficará a cargo de executar a aplicação, no fim ele aparecerá algo como 
 '** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **'
 
