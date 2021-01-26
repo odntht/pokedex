@@ -1,19 +1,9 @@
-<h2>Listagem</h2>
-<!-- <p>Há atualmente {{listaPokemon.count}} pokemons...</p>  -->
-<!-- <p>Exibindo {{listaPokemon.results.length}} pokemons de {{listaPokemon.count}}</p> -->
-<p>Gerações</p>
-<p>Atualmente há {{listaGeracoes+1}} gerações de pokemóns</p>
-<ul>
-    <li *ngFor="let p of listaGeracoes.results; index as i">
-        Geração {{i+1}}
-    </li>
-</ul>
-
-<p>Essas gerações estão espalhadas pelas diversas versões dos jogos</p>
-<p>Atualmente há {{listaVersoesJogos.count}} versões</p>
-
-<ul>
-    <li *ngFor="let v of listaVersoesJogos.results; index as i">
-        {{v.name}}
-    </li>
-</ul>
+<div *ngIf="!!listaGeracoes">
+   
+    <p>O Bulbasaur possui 2 tipos:</p>
+    <ul>
+        <li>Grass</li>
+        <li>Poison</li>
+    </ul>
+    <p>O Bulbasaur possui uma lista de 78 ataques</p>
+</div>

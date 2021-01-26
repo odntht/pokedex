@@ -17,8 +17,12 @@ export class PokemonService {
     return this.http.get<any[]>(`${this.pokemonsUrl}`);
   };
 
-  listarGeracoes(){
-    return this.http.get<any[]>(`${this.geracoesUrl}`);
+  listarGeracoes(numero){
+    if(!!numero){
+      return this.http.get<any[]>(`${this.geracoesUrl}`+numero);
+    } else{
+      return this.http.get<any[]>(`${this.geracoesUrl}`);
+    }
   }
 
   listarVersoesJogos(){

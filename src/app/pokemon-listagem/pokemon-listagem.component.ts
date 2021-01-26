@@ -16,21 +16,17 @@ export class PokemonListagemComponent implements OnInit {
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
-
-    this.listarGeracoes();
     this.listarPokemons();
     this.listarVersoesJogos();
   }
 
   listarPokemons() {
-    this.pokemonService.listarPokemons().subscribe(dados => this.listaPokemon = dados);
-  }
-
-  listarGeracoes() {
-    this.pokemonService.listarGeracoes().subscribe(dados => this.listaGeracoes = dados);
+    this.pokemonService.listarPokemons().
+    subscribe(dados => this.listaPokemon = dados);
   }
 
   listarVersoesJogos() {
-    this.pokemonService.listarVersoesJogos().subscribe(dados => this.listaVersoesJogos = dados);
+    this.pokemonService.listarVersoesJogos().
+    subscribe(dados => this.listaVersoesJogos = dados);
   }
 }
