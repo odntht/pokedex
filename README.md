@@ -10,7 +10,7 @@ Espera-se que tenha o node instalado, caso não tenha
 https://nodejs.org/pt-br/download/package-manager/
 
 Após instalado o node, faça a cópia deste projeto executando  
-'git clone https://github.com/odntht/pokedex.git'
+'git clone https://github.com/odntht/pokedex-DM.git'
 
 Após terminado o download, acesse a pasta 'pokedex' do projeto e execute no terminal o comando 
 'npm install'
